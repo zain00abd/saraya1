@@ -1,0 +1,722 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+body{
+    background-color: #310031;
+    height: 100vh;
+    color: aliceblue;
+    font-family: system-ui;
+    letter-spacing: 1px;
+}
+.card{
+    padding-top: 5%;
+    width: 80%;
+    margin: auto;
+    position: relative;
+}
+#name_visabl{
+    background-color: #6d006d;
+    width: 28%;
+    margin: auto;
+    margin-top: 15px;
+    height: 40px;
+    text-align: center;
+    border-radius: 13px;
+}
+#detal{
+    width: 15%;
+    position:relative;
+    box-sizing: border-box;
+}
+#detal summary{
+    background-color: #640048;
+    height: 30px;
+    margin-left: 20px;
+    width: 50%;
+    margin: auto;
+    text-align: center;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 17px;
+    
+}
+#detal button{
+    width: 60%;
+    border-radius: 0%;
+    margin: 2%;
+    position: relative;
+    left: 17%;
+    background:linear-gradient(#a5006e,#6f004a);
+    
+}
+
+.head{
+    text-transform: uppercase;
+    text-align: center;
+    padding: 3%;
+}
+input{
+    width: 100%;
+    height: 30px;
+    margin: 7px 0px;
+    margin-top: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(34, 19, 28);
+    color: rgb(251, 251, 251);
+    padding: 10px 10px;
+    text-align:left;
+    border-radius: 7px;
+    transition: 0.25s;
+}
+.inputs input{
+    text-align:center;
+}
+input:focus{
+    transform: scale(1.03);
+    background-color:black;
+}
+#inp_site_notes{
+    display: flex;
+    justify-content: space-between;
+}
+#inp_site_notes input{
+    width: 40%;
+    margin: auto;
+}
+#total{
+    background-color: #8c0e0e;
+    padding: 7px 2px;
+    margin-left: 5px;
+    border-radius: 5px;
+}
+#total::before{
+    content: "TOTAL: ";
+}
+#total1 {
+    width: 35%;
+    height: 30px;
+    content: "'erg'";
+}
+#total1::before{
+    content: "Total Object: ";
+    letter-spacing: 1.3px;
+}
+button{
+    width: 100%;
+    height: 40px;
+    margin: 10px;
+    padding: 7px;
+    border-radius: 20px;
+    /*text-transform: uppercase;*/
+    color: aliceblue;
+    background:linear-gradient(#4e004b,rgb(69, 0, 74));
+    border: none;
+    transition: 0.3s;
+}
+button:hover{
+    cursor: pointer;
+    color: #ffffff;
+    transform: scale(1.1);
+    background:linear-gradient(rgb(131, 0, 94),rgba(203, 0, 146, 0.878));
+    outline: none;
+    letter-spacing: 1.5px;
+    
+}
+.search button{
+    width: 50%;
+    margin-left: 10px;
+    margin: auto;
+}
+.search input{
+    width: 50%;
+    height: 40px;
+    text-align: center;
+    margin: 20px auto;
+}
+
+.btnsearch{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10px;
+}
+table{
+    width: 100%;
+    margin: 10px;
+}
+tbody tr td{
+    padding: 15px;
+    text-align: center;
+    font-family: system-ui;
+}
+table button{
+    margin: 5px;
+    padding: 5px;
+    width: 90%;
+    letter-spacing: 1.5px;
+}
+table button:hover{
+    letter-spacing: 0px;
+    transform: scale(1.1);
+    letter-spacing: 1.5px;
+    transition: 0.3s;
+}
+#shur{
+    height: 100%;
+    position: relative;
+    background-color: hsla(0, 0%, 0%, 0.427);
+}
+#shur1{
+    width: 40%;
+    height: 30%;
+    background-color: #2f2f2f;
+    position: absolute;
+    right:380px;
+    bottom: 300px;
+    border-radius: 20px;
+
+}
+#s11{
+    width: 100%;
+    height: 45px;
+    background-color: #5f0056;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    text-align: center;
+    
+    font-size: 20px;
+    letter-spacing: 1px;
+}
+#s11 p{
+    margin-top: 40px;
+}
+#s11 button{
+    width: 40%;
+    height: 100%;
+    text-align: center;
+    margin-top: 60px;
+    font-size: 20px;
+}
+.head div{
+    left: 800px;
+    bottom:28px;
+    position: relative;
+    width: 10%;
+}
+#btnmode{
+    background: none;
+    width: 0%;
+    height: 0%;
+    position: relative;
+    left: 415px;
+    bottom:70px;
+    visibility: visible;
+}
+#total2{
+    width: 20%;
+    height: 10%;
+}
+#total2::before{
+    content: "Total Meter: ";
+    letter-spacing: 1.3px;
+}
+
+.tabletext{
+    width: 105%;
+    margin: 10px 0;
+    height: 35px;
+    padding-left: 0px;
+
+    background:linear-gradient(#a5006e,#6f004a);
+    top: 50.5px;
+    font-size: 20px;
+    border-radius: 10px;
+    position: sticky;
+}
+#menu{
+    right: 50px;
+    width: 90%;
+    height: 50px;
+    background:linear-gradient(#a5006e,#6f004a);
+    border-radius: 15px;
+    position: fixed;
+    top: 0;
+}
+#menu button{
+    margin-top: 25px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+#btncashing{
+    width: 10%;
+    bottom: 20px;
+    position: relative;
+}
+#btncashing1{
+    width: 5%;
+    height: 50px;
+    background: none;
+    position: absolute;
+    left:80%;
+    bottom: -10px;
+}
+#menu p {
+    position: absolute;
+    left: 70%;
+    bottom: 15px;
+    font-size: 17px;
+}
+#poo1{
+    background:linear-gradient(rgb(140, 12, 140),rgb(69, 29, 74));
+    height: 35px;
+    top: 50.0px;
+    font-size: 20px;
+    border-radius: 10px;
+    position: sticky;
+}
+#btncashing3{
+    width: 10%;
+    bottom: 20px;
+    position: relative;
+}
+#Add_Withdraw{
+    width: 10%;
+    bottom: 40%;
+    position: relative;
+}
+.object{
+    margin-left: auto;
+    width: 80%;
+    position: absolute;
+    left: 135px;
+    top: 200px;
+    background-color: rgb(57, 6, 63);
+    border-radius: 15px;
+    border: 1px dashed rgb(248, 0, 211);
+    letter-spacing: 1px;
+}
+#data_prem{
+    margin-left:0px;
+    display: flex;
+    justify-content: space-between;
+    background-color: rgb(97, 9, 100);
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    height: 90px;
+}
+#data_prem table {
+    position: relative;
+    margin: auto;
+    bottom:12% ;
+}
+#data_prem input{
+    margin: 10px 10px;
+    margin-left: 30px;
+    background-color: rgb(46, 3, 46);
+    justify-content: space-between;
+    width: 50%;
+    height: 20px;
+    text-align: center;
+}
+#data_prem p{
+    color: #ffffff;
+    margin: auto;
+    font-size: 18px;
+    font-weight: 600;
+    margin-left: 1%;
+}
+#p_1{
+    color: #ff0000;
+    border-radius: 20px;
+    font-size: 20px;
+}
+#btn_obj button{
+    background:linear-gradient(rgb(135, 44, 145),rgb(38, 7, 42));
+    font-size: 16px;
+    width: 25%;
+}
+#btn_obj{
+    display: flex;
+    justify-content: space-between;
+}
+#btn_obj button:hover{
+    
+    background:linear-gradient(rgb(129, 0, 90),rgb(211, 0, 162));
+}
+.ggtt1 input{
+    width: 70%;
+    text-align: center;
+    background-color: #2f002f;
+    font-size: 15px;
+}
+.ggtt1{
+    margin: auto;
+    width: 95%;
+}
+.ggtt1 p{
+    display: inline;
+    font-size: 17px;
+}
+.ggtt1 small::before{
+    content: 'M: ';
+
+}
+.ggtt1 small{
+    font-size: 17px;
+    width: 150%;
+}
+.ggtt1 table{
+    margin-top: 20px;
+    text-align: center;
+}
+.ggtt1 table tr th{
+    margin: auto;
+    padding-left: 75px;
+    text-align: center;
+}
+.menes::after{
+    width: 20px;
+    margin-left: 10px;
+    content: '-';
+    font-size: 30px;
+    color: #f80000;
+    text-align:center;
+    border-radius: 50px;
+}
+.plus::after{
+    width: 20px;
+    margin-left: 10px;
+    content: '+';
+    font-size: 28px;
+    color: #00f857;
+    text-align:center;
+    border-radius: 50px;
+}
+.stybtn1::before{
+    width: 100%;
+    height: 8px;
+    position:absolute;
+    bottom: 0;
+    left: 0;
+    content: '';
+    background-color: #ff00aa;
+}
+
+#btncashing10{
+    width: 70px;
+    height: 50px;
+    background: none;
+    position: relative;
+    left: 550px;
+    bottom: 7px;
+}
+.adss{
+    background-color: #6f004ab4;
+    font-size: 18px;
+}
+.btn_plus_reduce{
+    width: 25%;
+    display: flex;
+    position: absolute;
+    top:-51px;
+    left: 20px;
+}
+.btn_plus_reduce button{
+    border-radius: 10px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
+    width: 90px;
+    margin: 2px;
+    margin-top: 10px;
+    left: 20px;
+    position: relative;
+}
+
+#min{
+    width: 10%;
+    bottom: 20px;
+    position: relative;
+    transition: 0.25s;
+}
+
+#mnu{
+    left: 0;
+    bottom: 0px;
+    background:linear-gradient( #810056, #47002f);
+    background:repeating-linear-gradient( #810056, #47002f);
+    width: 23%;
+    height: 100%;
+    position: fixed;
+    text-align: center;
+}
+#mnu div{
+    margin-top: 60px;
+}
+#mnu div input{
+    margin-top: 20px;
+    width: 45%;
+    margin-right: 30px;
+    background-color: #47002f;
+    display: inline-table;
+    text-align: center;
+}
+#mnu button{
+    width: 50%;
+    height: 50px;
+    font-size: 15px;
+    background:repeating-linear-gradient( #520000, #dc0655);
+    letter-spacing: 1.6px;
+}
+#mnu div button{
+    width: 28%;
+    background:repeating-linear-gradient( #d01a60, #620024);
+    letter-spacing: 1.6px;
+}
+#mnu h1{
+    background:repeating-linear-gradient( #d01a60, #38081a);
+    height: 50px;
+    padding-top: 10px;
+}
+#Editproducts{
+    margin: auto;
+    height:350px;
+    width: 90%;
+    background:repeating-linear-gradient( #a02e5a, #38081a);
+    border-radius: 15px;
+}
+#Editproducts button{
+    position: relative;
+    bottom: 50px;
+}
+#Editproducts input{
+    margin-left: 20px;
+}
+#tab1{
+    position: relative;
+    width: 100%;
+    bottom: 50px;
+    margin: auto;
+}
+#tbodyedit{
+    position: relative;
+    margin: auto;
+    width: 100%;
+}
+#erorlogin{
+    position: relative;
+    top: 300px;
+    background-color: #9600009f;
+    width: 80%;
+    font-size: 19px;
+    margin: auto;
+    border-radius: 20px;
+}
+
+#log{
+    position: relative;
+    width: 30%;
+    height: 650px;
+    background: linear-gradient(rgb(105, 0, 100),rgb(110, 36, 88));
+    margin: auto;
+    top: 200px;
+    /* border: 1px dashed rgb(214, 0, 182); */
+    border-radius: 15px;
+    text-align: center;
+}
+#log h1{
+    padding-top: 13px;
+    color: rgb(255, 255, 255);
+    background: linear-gradient(rgb(138, 0, 132),rgb(161, 32, 122));
+    height: 50px;
+    border-top-left-radius:15px ;
+    border-top-right-radius:15px ;
+}
+#log p{
+    margin-top: 30px;
+    color: rgb(255, 222, 253);
+}
+#inplog{
+    position: absolute;
+    left: 50px;
+    top: 150px;
+}
+#inplog input{
+    margin-left: 40px;
+    margin-top: 10px;
+    width: 270px;
+    height: 42px;
+    background-color: rgba(34, 34, 34, 0.59);
+    outline: none;
+    border: none;
+    border-radius: 13px;
+    color: aliceblue;
+    text-align: center;
+}
+#inplog p{
+    position: relative;
+    margin-right: 80px;
+}
+#p1{
+    right: 60px;
+}
+#log button{
+    width: 150px;
+    height: 60px;
+    border-radius: 15px;
+    position: relative;
+    background-color: rgb(159, 0, 141);
+    border: none;
+    top: 320px;
+    color: rgb(255, 255, 255);
+}
+#log button:hover{
+    transition: 0.3s;
+    background: linear-gradient(rgb(174, 0, 122),rgb(135, 0, 94));
+    transform: scale(1.1);
+}
+#inplog input:hover{
+    transition: 0.3s;
+    background-color: rgba(43, 17, 33, 0.801);
+    transform: scale(1.1);
+}
+#inplog input:focus{
+    transition: 0.3s;
+    background-color: rgba(43, 17, 33, 0.801);
+    transform: scale(1.1);
+}
+.inperor{
+    
+    border: solid 1px rgb(125, 0, 0);
+}
+
+.adduser{
+    position: relative;
+    width: 80%;
+    background: linear-gradient(rgb(114, 3, 118),rgb(66, 4, 66));
+    margin: auto;
+    border-radius: 15px;
+    height: 350px;
+}
+.adduser button{
+    position: relative;
+    bottom: 120px;
+    left: 30%;
+}
+#inpadduser{
+    height:23px;
+    position: relative;
+    left: 15px;
+    font-size: 16px;
+}
+#radioadd{
+    position: relative;
+    width: 100%;
+    margin-left: -20%;
+    bottom: 40px;
+}
+#radioadd p{
+    display: inline;
+    position: absolute;
+    font-weight: 700;
+    letter-spacing: 1.3px;
+    left: 55%;
+}
+#radioadd input{
+    position: relative;
+    top: -21px;
+    width: 15px;
+    height: 25px;
+}
+#inppassworduser{
+    height:23px;
+    position: relative;
+    left: -15%;
+    font-size: 16px;
+}
+#pass_count{
+    display: inline-table;
+    width: 50%;
+    position:absolute;
+    left: 60%;
+    top: 40px;
+}
+#pass_count input{
+    width: 50%;
+}
+/* ////////////////////////////////// */
+/* ////////////////////////////////// */
+@media screen and (max-width:750px){
+    #tab1{
+        font-size: 15px;
+        position: relative;
+        width: 100%;
+        bottom: 70px;
+    }
+    #tbodyedit{
+        margin: 1px;
+        position: absolute;
+        width: 150%;
+        margin-left: -25px;
+    }
+    body{
+        position: relative;
+    }
+    #inplog input{
+        margin-left: 0px;
+        margin-top: 10px;
+        width: 80%;
+        height: 35px;
+        background-color: rgba(34, 34, 34, 0.59);
+        outline: none;
+        border: none;
+        border-radius: 13px;
+        color: aliceblue;
+        text-align: center;
+    }
+    #inplog p{
+        position: relative;
+        margin-right: 40px;
+        width: 100%;
+    }
+    #log{
+    position: absolute;
+    width: 35%;
+    height: 600px;
+    background: linear-gradient(rgb(105, 0, 100),rgb(110, 36, 88));
+    left: 35%;
+    top: 30%;
+    /* border: 1px dashed rgb(214, 0, 182); */
+    border-radius: 15px;
+    text-align: center;
+    }
+    .ggtt1 input{
+        height: 20px;
+        width: 100%;
+        text-align: center;
+        position: relative;
+        right: 30%;
+    }
+    #inp_site_notes{
+        display: flex;
+        justify-content: space-between;
+    }
+    #inp_site_notes input{
+        width: 35%;
+        margin: auto;
+    }
+    .inputs{
+        margin: auto;
+    }
+    .ggtt1 small{
+        width: 200%;
+    }
+    .ggtt1{
+        width: 100%;
+    }
+    .object{
+        width: 93%;
+        position: absolute;
+        right: 3%;
+    }
+}

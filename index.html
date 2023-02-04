@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document1</title>
+    <link rel="stylesheet" href="card2.css">
+</head>
+<body>
+    <div id="log">
+        <h1>LOG IN</h1>
+        <p>Program developed for data management</p>
+        <div id="inplog">
+            <p>Username / User validity :</p>
+            <input id="username" type="text">
+            <p id="p1">Password :</p>
+            <input id="password" type="password">
+        </div>
+        <button id="login" onclick="login()">LOG IN</button>
+        <p id="erorlogin">User login session does not match</p>
+    </div>
+
+
+    <div id="mnu" style="display: none;">
+        <h1>Settings</h1>
+        <button id="log_out" onclick="loguot()">Log Out</button>
+
+        <button id="log_out" onclick="loguot()">Log Out</button>
+        
+        <div id="change_pass" style="display: none;">
+            <h2>Change Password"Admin"</h2>
+                        <input id="inpadmin" type="text">
+                        <button id="subadmin" onclick="localtrue()">Submit</button>
+                        <p>-------------------------------------------------------</p>
+                        <h2>Change Password"Editor"</h2>
+                        <input id="inpeditor" type="text">
+                        <button id="subeditor">Submit</button>
+                        <p>-------------------------------------------------------</p>
+                        <h2>Change Password"User"</h2>
+                        <input id="inpuser" type="text">
+                        <button id="subuser">Submit</button>
+                        <p>-------------------------------------------------------</p>
+                    </div>
+                    
+                    <div class="adduser">
+                        <div id="inpadduser">
+                            <input type="text"  id="">
+                            <div id="pass_count">
+                                <input type="text"  id="inppassworduser">
+                                <input type="text"  id="">
+                            </div>
+                        </div>
+                        <div id="radioadd">
+                            <input type="radio" name="1" id="admin">
+                            <p>Admin</p>
+                            <input type="radio" name="1" id="editor">
+                            <p>Editor</p>
+                            <input type="radio" name="1" id="user">
+                            <p>User</p>
+
+                        </div>
+                        
+                    </div>
+
+                    <div id="Editproducts">
+                        <h2>Edit Products</h2>
+                        <input id="inpedit" onkeyup="indexobj(this.value)" type="text">
+                        <div>
+
+                            <button onclick="updateprodect()">update</button>
+                            <button id="deletdata1" onclick="deletdata()">delet</button>
+                            <div id="tab1">
+                                <table>
+                                    <tr id="">
+                                        <th>Title</th>
+                                        <th>Meter</th>
+                                        <th>Category</th>
+                                    </tr>
+                                    <tbody id="tbodyedit">
+                                        
+                                    </tbody>
+                        
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                
+    </div>
+
+
+    <div class="card" >
+        <div id="menu">
+            <button id="min" onclick="mnu1()">Settings</button>
+            <button id="btncashing" onclick="bard1()">cashing</button>
+            <button id="Add_Withdraw" onclick="iobj(this.id)">Add / Withdraw Quantities</button>
+            <button id="btncashing1" onclick="btnmode1()"><img src="1on.png" alt="gg"></button>
+            <p>DARK MODE</p>
+        </div>
+        <div class="head">
+            <h1>cruds</h1>
+            <p>product management system</p>
+        </div>
+
+
+        <div class="inputs">
+            <input type="text" placeholder="Title" id="title">
+            <input type="tel" placeholder="Meter" id="ads">
+            <input type="text" placeholder="Category" onkeyup="getidx(this.value)" id="category">
+            <div id="inp_site_notes">
+                <input type="text" placeholder="Project site" id="site">
+                <input type="text" placeholder="Notes" id="notes">
+            </div>
+            <button id="submit" >Creat</button>
+        </div>
+
+
+        <div class="outpots">
+            <div class="search">
+                <input type="text" id="search1" onkeyup="searchobject(this.value)" placeholder="Search" style="display: none;">
+                <small id="total1"></small>
+                <small id="total2"></small>
+                <div class="btnsearch">
+                    <button id="searchbtn1" onclick="getsearch(this.id)">Search By Title</button>
+                </div>
+            </div>
+        </div>
+
+
+        <table  class="tablex">
+            <tr id="poo1">
+                <th>ID</th>
+                <th>Title</th>
+                <th>Meter</th>
+                <th>Category</th>
+                <th>Project site</th>
+                <th>Notes</th>
+            </tr>
+            <tbody id="tbody">
+                
+            </tbody>
+
+        </table>
+
+    </div>
+
+    <div id="shur" style="display: none;">
+        <div id="shur1">
+            <div id="s11">
+                <h2>Delet All</h2>
+                <p>Are you sure to delete all products?</p>
+                <button id="masyes" onclick="yesdelet()">Yes</button>
+                <button id="masno" onclick="nodelet()">No</button>
+            </div>
+        </div>
+    </div>
+
+    <div id="cch1" style="display: none;">
+        <div class="headcash">
+            <h1>List of recent changes to products</h1>
+            <h2 id="title_cash"></h2>
+        </div>
+        <div id="sear1">
+            <div id="btn_cash_style">
+                <button id="home">Home</button>
+                <div id="cash_style">
+                    <button id="Reduce" onclick="showreduce(this.id)">Reduce</button>
+                    <button id="Addition" onclick="showreduce(this.id)">Addition</button>
+                </div>
+            </div>
+            <h2>search in cashing</h2>
+            <p>Searching in: data or permission or customer name or Notes</p>
+            <input id="Inp_Search_Cash" type="text" onkeyup="searchreduce(this.value)" placeholder="Search">
+
+            <div id="deletcash">
+                <h2>delet item</h2>
+                <input id="inpidexreduce" onkeyup="idexreduce(this.value)" type="text">
+                <button id="cashdelet" onclick="cashdelet()">Delet</button>
+            </div>
+            <table>
+                <tbody id="tbodycash">
+                </tbody>
+            </table>
+        </div>
+        
+
+
+        <div id="cash">
+        </div>
+
+    </div>
+
+    <div class="object" style="display: none;">
+        <div class="btn_plus_reduce">
+            <button onclick="btnobject(this.id)" id="bntplus">Addition</button>
+            <button onclick="btnobject(this.id)" id="bntreduce">Reduce</button>
+        </div>
+        <div id="data_prem">
+            <table>
+
+                <td>
+                    
+                    <p>Date:</p>
+                    <input type="tel" placeholder="data" id="datawin">
+                </td>
+                <td>
+                    <p>permission:</p>
+                    <input type="tel" placeholder="permission" id="perm1">
+
+                </td>
+                <td>
+                    <p>customer name:</p>
+                    <input type="text" placeholder="customer name" id="name_cus">
+
+                </td>
+                <td>
+
+                    <p>Notes:</p>
+                    <input type="text" placeholder="Notes" id="Notes">
+                </td>
+            </table>
+        </div>
+
+        <div class="ggtt1">
+            <table>
+                <tr>
+                    <h3>ID</h3>
+                    <th>Title Code</th>
+                    <th>Title</th>
+                    <th>Total Metr</th>
+                    <th id="textobj">Reduce</th>
+                </tr>    
+            </table>
+            <table>
+                <tbody id="tbd123">
+                </tbody>
+            </table>
+            <div id="btn_obj">
+
+                <button onclick="btnaplly()" id="apply">Apply</BUtton>
+                <button id="close" onclick="iobj(this.id)">Close</BUtton>
+            </div>
+        </div>
+        
+    </div>
+</body>
+<script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-app.js";
+    import { getDatabase,update, set, ref, get, onChildChanged } from "https://www.gstatic.com/firebasejs/9.10.0/firebase-database.js";
+    var Config = {
+        apiKey: "AIzaSyD8hMx3bp_d3WqUrN3v6rjp9XFuHoAtpWs",
+        authDomain: "kaza-2f8f5.firebaseapp.com",
+        projectId: "kaza-2f8f5",
+        databaseURL: "https://kaza-2f8f5-default-rtdb.firebaseio.com",
+        storageBucket: "kaza-2f8f5.appspot.com",
+        messagingSenderId: "974797848307",
+        appId: "1:974797848307:web:15ad604c7187ce367a0186"
+    }
+    const app = initializeApp(Config);
+    const db = getDatabase(app);
+
+    document.getElementById('home').onclick = () =>{
+        location.reload();
+    }
+    ///////////////////////////////////////////////// set password....
+    let btnadmin = document.getElementById('subadmin')
+    let passadmin = document.getElementById('inpadmin')
+    let btneditor = document.getElementById('subeditor')
+    let passeditor = document.getElementById('inpeditor')
+    let btnuser = document.getElementById('subuser')
+    let passuser = document.getElementById('inpuser')
+    btnadmin.onclick = () => {
+        if(passadmin.value != ''){
+
+            update(ref(db,'password/'),{
+                'admin':passadmin.value,
+            })
+            retret();
+        }
+        passadmin.value = '';
+    }
+    btneditor.onclick = () => {
+        if(passeditor.value != ''){
+
+            update(ref(db,'password/'),{
+                'editor':passeditor.value,
+            })
+        }
+        passeditor.value = '';
+    }
+    btnuser.onclick = () => {
+        if(passuser.value != ''){
+
+            update(ref(db,'password/'),{
+                'user':passuser.value,
+            })
+        }
+        passuser.value = '';
+    }
+    function getpassword(){
+        let arrpassword = ['admin','editor','user']
+        let addpass = [];
+
+        for(let i = 0; i<arrpassword.length; i++){
+            get(ref(db,`password/${arrpassword[i]}`)).then((data)=>{
+
+                if(data.val() != localStorage.getItem('pass')){
+                    if(data.val() != null){
+                        addpass.push(data.val())
+                    }
+                    if(i == arrpassword.length-1){
+                        if(localStorage.getItem('pass') != addpass){
+                            localStorage.setItem('pass',addpass)
+                            getfalse();
+                        }
+                    }
+                }
+            })
+        }
+    }
+    
+////////////////////////////////////////// end set password.
+
+///////////////////////////////////////// get data.....
+    function CondDB(){
+                get(ref(db,'1/product')).then((data)=>{
+
+                    if(data.val() != null && localStorage.getItem('product') != data.val()){
+        
+                        localStorage.setItem('product',data.val())
+                        console.log('pruduct')
+                        getfalse()
+                    }
+                })
+
+                get(ref(db,'2/product')).then((data)=>{
+        
+                    if(data.val() != null && localStorage.getItem('cashdiv') != data.val()){
+        
+                        localStorage.setItem('cashdiv',data.val())
+                        console.log('cashdiv')
+                        getfalse()
+                    }
+                })
+                get(ref(db,'3/product')).then((data)=>{
+        
+                    if(data.val() != null && localStorage.getItem('pluscashdiv') != data.val()){
+
+                    localStorage.setItem('pluscashdiv',data.val())
+                    console.log('pluscashdiv')
+                    getfalse()
+                    }
+                })
+
+                getpassword()
+    }
+    /////////////////////////////////////////// end get data.
+
+    //////////////////////////////////////////////// set data
+    document.getElementById('submit').addEventListener('click',() =>{
+        setdata()
+    })
+    document.getElementById('deletdata1').addEventListener('click',() =>{
+        setdata()
+    })
+    document.getElementById('apply').addEventListener('click',() =>{
+        setdata()
+    })
+    document.getElementById('cashdelet').addEventListener('click',() =>{
+        setdata()
+    })
+    
+
+    function setdata(){
+            update(ref(db,'1/'),{
+                'product':localStorage.getItem('product'),
+            })
+            
+            update(ref(db,'2/'),{
+                'product':localStorage.getItem('cashdiv'),
+            })
+
+            update(ref(db,'3/'),{
+                'product':localStorage.getItem('pluscashdiv'),
+            })
+    }
+
+
+    function getfalse(){
+        localStorage.setItem('read','true')
+
+        setTimeout(() => {
+            localStorage.setItem('read','false')
+        },500);
+    }
+
+    setInterval(function(){
+        CondDB()
+    },1000)
+
+</script>
+<script src="card3.js"></script>
+</html>
