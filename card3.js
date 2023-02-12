@@ -44,21 +44,12 @@ let divcash = document.getElementById('cash')
 let bt1 = document.getElementById('bntplus')
 let bt2 = document.getElementById('bntreduce')
 let textobj = document.getElementById('textobj')
-let passlogin;
-if(localStorage.getItem('pass') !== null){
-
-    passlogin = localStorage.getItem('pass').split(',')
-}
-let allpass = localStorage.getItem('allpassword')
-if(localStorage.getItem('allpassword') !== null){
-
-    allpass = localStorage.getItem('allpassword')
-}
 let InpSearchDeletCahs = document.getElementById('inpidexreduce')
 let p1 = document.getElementById('p_1')
 let p2 = document.getElementById('p_2')
 ///////////////////////////////////////////////////////
-
+let passlogin;
+let allpass;
 let btnmodeobj;
 let shei;
 let shevalue;
@@ -103,7 +94,7 @@ textobj.innerHTML = '----'
 
 function getOS() {
     
-    var userAgent = window.navigator.userAgent
+    // var userAgent = window.navigator.userAgent
     var platform = window.navigator.userAgentData.platform || window.navigator.platform
     var macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K']
     var windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE']
@@ -214,12 +205,15 @@ function mnu1(){
     console.log(vvf)
 }
 
-
-
 function getnewpass(){
-    passlogin = localStorage.getItem('pass').split(',')
-    allpass = localStorage.getItem('allpassword')
-    console.log(passlogin + ' / ' + allpass)
+    if(localStorage.getItem('pass') !== null){
+
+        passlogin = localStorage.getItem('pass').split(',')
+    }
+    if(localStorage.getItem('allpassword') !== null){
+
+        allpass = localStorage.getItem('allpassword')   
+    }
 }
 getnewpass()
 
@@ -305,7 +299,7 @@ function admin(){
     divchangepass.style.display = 'block'
     document.getElementById('Add_Withdraw').style.display = 'block'
     submit.style.display = 'block'
-    document.getElementById('btnshow_chaengpass').style.display = 'block'
+    // document.getElementById('btnshow_chaengpass').style.display = 'block'
     document.querySelector('.adduser').style.display = 'block'
     document.getElementById('Editproducts').style.display = 'block'
 
@@ -317,7 +311,7 @@ function editor(){
     submit.style.display = 'none'
     localStorage.setItem('allpassword',passlogin.join())
     allpass = localStorage.getItem('allpassword')
-    document.getElementById('btnshow_chaengpass').style.display = 'none'
+    // document.getElementById('btnshow_chaengpass').style.display = 'none'
     document.querySelector('.adduser').style.display = 'none'
     document.getElementById('Editproducts').style.display = 'none'
 }
@@ -330,7 +324,7 @@ function user(){
     document.getElementById('Add_Withdraw').style.display = 'none'
     document.querySelector('.adduser').style.display = 'none'
     document.getElementById('Editproducts').style.display = 'none'
-    document.getElementById('btnshow_chaengpass').style.display = 'none'
+    // document.getElementById('btnshow_chaengpass').style.display = 'none'
 }
 
 setInterval(function(){
