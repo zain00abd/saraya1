@@ -94,8 +94,8 @@ textobj.innerHTML = '----'
 
 function getOS() {
     
-    // var userAgent = window.navigator.userAgent
-    // var platform = window.navigator.userAgentData.platform || window.navigator.platform
+    var userAgent = window.navigator.userAgent
+    var platform = window.navigator.userAgentData.platform || window.navigator.platform
     var macosPlatforms = ['Macintosh', 'MacIntel', 'MacPPC', 'Mac68K']
     var windowsPlatforms = ['Win32', 'Win64', 'Windows', 'WinCE']
     var iosPlatforms = ['iPhone', 'iPad', 'iPod']
@@ -114,7 +114,6 @@ function getOS() {
     
     return os;
 }
-getOS()
 
 function zoom(){
     if(os === 'Android' || os === 'iOS'){
