@@ -74,7 +74,7 @@ let objreduce;
 let objreduce1; 
 
 //////////////////////////////////////////////////////
-
+let color = '#6f104ab4';
 let arrreduce = [];
 let cssrun = '';
 let btnchange = 'h1'
@@ -92,7 +92,17 @@ var os = null;
 textobj.innerHTML = '----'
 
 
-
+function getOS() {
+    var userAgent = window.navigator.userAgent
+    if (/Android/.test(userAgent)) {
+        os = 'Android';
+    } else if (/iPhone/.test(userAgent)) {
+        os = 'iOS';
+    }
+    
+    return os;
+}
+getOS()
 
 function zoom(){
     if(os === 'Android' || os === 'iOS'){
@@ -102,6 +112,7 @@ function zoom(){
     else{
         document.body.style.zoom = '80%'
     }
+    console.log(os)
 }
 zoom()
 
@@ -404,20 +415,24 @@ if(localStorage.getItem('read') == 'true'){
             notestitle.value = '';
             site.value = '';
         }
-
+        
         function showdata(){
             let table = '';
             for(let i = 0; i < objects.length; i++)
             {
-                table += `<tr>
+                table += `<tr >
                 <th>${i+1}</th>
                 <td>${objects[i].title}</td>
-                <td class="adss">${objects[i].ads}</td>
+                <td style="background-color:${color}">${objects[i].ads}</td>
                 <td>${objects[i].category}</td>
                 <td>${objects[i].site}</td>
                 <td>${objects[i].notestitle}</td>
                 </tr>
                     `
+                    if(color == '#6f104ab4'){
+                        color = '#8a2554b4'
+                    }
+                    else{color = '#6f104ab4'}
                 }
                 document.getElementById('tbody').innerHTML = table;
                 }
@@ -498,12 +513,16 @@ if(localStorage.getItem('read') == 'true'){
                             table += `<tr>
                             <th>${i+1}</th>
                             <td>${objects[i].title}</td>
-                            <td class="adss">${objects[i].ads}</td>
+                            <td style="background-color:${color}">${objects[i].ads}</td>
                             <td>${objects[i].category}</td>
                             <td>${objects[i].site}</td> 
                             <td>${objects[i].notestitle}</td>
                             </tr>
                             `
+                            if(color == '#6f104ab4'){
+                                color = '#8a2554b4'
+                            }
+                            else{color = '#6f104ab4'}
                         }
                         
                         ititle = objects[i].title
