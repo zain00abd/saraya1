@@ -24,10 +24,7 @@
 
     <div id="mnu" style="display: none;">
         <h1>Settings</h1>
-        <button id="log_out" onclick="loguot()">Log Out</button>
-
-        <button id="log_out" onclick="loguot()">Log Out</button>
-        
+        <button id="log_out" onclick="loguot()">Log Out</button>   
         <div id="change_pass" style="display: none;">
             <h2>Change Password"Admin"</h2>
                         <input id="inpadmin" type="text">
@@ -44,11 +41,12 @@
                     </div>
                     
                     <div class="adduser">
+                        <h2 style="height: 0%;">Add User</h2>
                         <div id="inpadduser">
-                            <input type="text"  id="">
+                            <input type="text" placeholder="Username"  id="">
+                            <input type="text" placeholder="Password" id="inppassworduser">
                             <div id="pass_count">
-                                <input type="text"  id="inppassworduser">
-                                <input type="text"  id="">
+                                <input type="number" placeholder="count"  id="">
                             </div>
                         </div>
                         <div id="radioadd">
@@ -61,6 +59,7 @@
 
                         </div>
                         
+                        <button>submit</button>
                     </div>
 
                     <div id="Editproducts">

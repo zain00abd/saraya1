@@ -580,22 +580,34 @@ table button:hover{
 .adduser{
     position: relative;
     width: 80%;
-    background: linear-gradient(rgb(0, 163, 158),rgb(0, 60, 67));
+    background: linear-gradient(rgb(0, 57, 150),rgb(0, 100, 140));
     margin: auto;
     border-radius: 15px;
     height: 350px;
-    color: #f0f8ff;
+    color: #ffffff;
+    text-align: center;
 }
 .adduser button{
     position: relative;
-    bottom: 120px;
+    bottom: 20px;
     left: 30%;
+}
+#inpadduser{
+    bottom: 28px;
+    height:23px;
+    position: relative;
+    left: 15px;
+}
+#inpadduser input{
+    
+    font-size: 17px;
+    font-weight: 600;
 }
 #radioadd{
     position: relative;
     width: 100%;
     margin-left: -20%;
-    bottom: 40px;
+    bottom: -60px;
 }
 #radioadd p{
     display: inline;
@@ -610,12 +622,6 @@ table button:hover{
     width: 15px;
     height: 25px;
 }
-#inpadduser{
-    height:23px;
-    position: relative;
-    left: 15px;
-    font-size: 16px;
-}
 #inppassworduser{
     height:23px;
     position: relative;
@@ -627,7 +633,8 @@ table button:hover{
     width: 50%;
     position:absolute;
     left: 60%;
-    top: 40px;
+    top: 14px;
+    margin-left: -2%;
 }
 #pass_count input{
     width: 50%;
