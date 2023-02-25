@@ -43,10 +43,10 @@
                     <div class="adduser">
                         <h2 style="height: 0%;">Add User</h2>
                         <div id="inpadduser">
-                            <input type="text" placeholder="Username"  id="">
+                            <input type="text" placeholder="Username"  id="inpnameuser">
                             <input type="text" placeholder="Password" id="inppassworduser">
                             <div id="pass_count">
-                                <input type="number" placeholder="count"  id="">
+                                <input type="number" placeholder="count"  id="inpcountuser">
                             </div>
                         </div>
                         <div id="radioadd">
@@ -59,7 +59,7 @@
 
                         </div>
                         
-                        <button>submit</button>
+                        <button id="Submit_Add_User">submit</button>
                     </div>
 
                     <div id="Editproducts">
@@ -396,6 +396,88 @@
     setInterval(function(){
         CondDB()
     },1000)
+
+    // Add User //*********************
+    let a = ['admin','editor','user']
+    for(let i = 0; i < 3; i++){
+
+        document.getElementById(`${a[i]}`).addEventListener('click',() =>(
+            getiduser(a[i])
+        ))
+    }
+
+    let iduser;
+    function getiduser(id){
+        iduser = id
+    }
+
+    document.getElementById('Submit_Add_User').addEventListener('click',() =>(
+        AddUser()
+    ))
+    
+    let arradduser = [];
+
+    function getuseradd(){
+
+        get(ref(db,'AddUser/UserAdd')).then((data)=>{
+            if(data.val() !== null){
+                arradduser = JSON.parse(data.val())
+            }
+            console.log(arradduser[0])
+
+        })
+    }
+    getuseradd()
+
+      let x1 = document.getElementById('inpnameuser')
+      let x2 = document.getElementById('inppassworduser')
+      let x3 = document.getElementById('inpcountuser')
+
+    function AddUser(){
+        let userconncte = {
+            name:x1.value,
+            pass:x2.value,
+            count:Number(x3.value),
+            id:iduser,
+        }
+        
+        arradduser.push(userconncte)
+
+        update(ref(db,'AddUser/'),{
+            'UserAdd':JSON.stringify(arradduser),
+        })
+        caeredataAdd()
+    }
+
+    function caeredataAdd(){
+        x1.value = '';
+        x2.value = '';
+        x3.value = '';
+    }
+
+    document.getElementById('login').addEventListener('click',() =>(
+        applyuseradd()
+    ))
+    let usernameAdd = document.getElementById('username');
+    let passwordAdd = document.getElementById('password');
+
+    function applyuseradd(){
+        for(let i = 0; i < arradduser.length; i++){
+            if(usernameAdd.value == arradduser[i].name && passwordAdd.value == arradduser[i].pass && arradduser[i].count !== 0){
+                localStorage.setItem('allpassword',localStorage.getItem('pass'))
+                localStorage.setItem('advansev',arradduser[i].id)
+                arradduser[i].count--
+                if(arradduser[i].count <= 0){
+                    arradduser.splice(i,1)
+                }
+                update(ref(db,'AddUser/'),{
+                'UserAdd':JSON.stringify(arradduser),
+                })  
+
+                location.reload();
+            }
+        }
+    }
 
 </script>
 <script src="card3.js"></script>
