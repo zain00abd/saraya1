@@ -4,10 +4,11 @@
 }
 body{
     background-color: #310031;
-    height: 100vh;
-    color: aliceblue;
+    height: auto;
+    color: rgb(255, 255, 255);
     font-family: system-ui;
     letter-spacing: 1px;
+    padding-top: 50px;
 }
 .card{
     padding-top: 5%;
@@ -15,9 +16,16 @@ body{
     margin: auto;
     position: relative;
 }
+#name334{
+    position: absolute;
+    margin: auto;   
+    margin-left: 40%;
+    margin-top: 35px;
+}
 #name_visabl{
+    position: relative;
     background-color: #6d006d;
-    width: 25%;
+    width: auto;
     margin: auto;
     margin-top: 15px;
     height: auto;
