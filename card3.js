@@ -116,10 +116,12 @@ function zoom(){
 }
 zoom()
 
-// function getname(){
-//     nameVesabl.innerHTML = localStorage.getItem('nameUser') + ' / ' + localStorage.getItem('advansev')
-// }
+function getname(){
+    nameVesabl.innerHTML = localStorage.getItem('nameUser') + ' / ' + localStorage.getItem('advansev')
+}
+getname()
 let idsort;
+
 if(localStorage.getItem('sort') !== null){
     idsort = localStorage.getItem('sort');
 }else{idsort = 'Coding'}
