@@ -75,6 +75,7 @@ let objreduce1;
 
 //////////////////////////////////////////////////////
 let color = '';
+let color1 = '';
 let arrreduce = [];
 let cssrun = '';
 let btnchange = 'h1'
@@ -420,8 +421,9 @@ if(localStorage.getItem('read') == 'true'){
 
         if(localStorage.getItem('mode1') == 'light'){
             color = '#6f104ab4'
+            color1 = '#ffffff'
         }
-        else{color = '#00d3d3'}
+        else{color = '#0c3c4a';color1 = '#000000'}
 
         function showdata(){
             let table = '';
@@ -430,7 +432,7 @@ if(localStorage.getItem('read') == 'true'){
                 table += `<tr >
                 <th>${i+1}</th>
                 <td>${objects[i].title}</td>
-                <td style="width:13%; background-color:${color};" ><button style="background: none; height:12px;"> ${objects[i].ads} </button></td>
+                <td style="width:13%; background-color:${color};" ><button style="background: none; height:1px; margin:auto; color:${color1} font-weight: 750; font-size:15px;"> ${objects[i].ads} </button></td>
                 <td>${objects[i].category}</td>
                 <td>${objects[i].site}</td>
                 <td>${objects[i].notestitle}</td>
@@ -516,7 +518,7 @@ if(localStorage.getItem('read') == 'true'){
                             table += `<tr>
                             <th>${i+1}</th>
                             <td>${objects[i].title}</td>
-                            <td style="background-color:${color}">${objects[i].ads}</td>
+                            <td style="width:13%; background-color:${color};" ><button style="background: none; height:1px; margin:auto; border:none; font-weight: 700; font-size:15px;"> ${objects[i].ads} </button></td>
                             <td>${objects[i].category}</td>
                             <td>${objects[i].site}</td> 
                             <td>${objects[i].notestitle}</td>

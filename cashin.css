@@ -3,9 +3,10 @@
     padding: 0%;
 }
 body{
+    position: relative;
     font-family: system-ui;
     background:linear-gradient(rgba(143, 192, 249, 0.825),rgba(143, 192, 249, 0.825));
-    height: 100vh;
+    margin-bottom: 30px;
 }
 #cash1{
     position: relative;
