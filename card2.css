@@ -16,17 +16,9 @@ body{
     margin: auto;
     position: relative;
 }
-#name334{
-    position: absolute;
-    width: auto;
-    margin: auto;   
-    margin-left: 43%;
-    top:7%;
-}
 #name_visabl{
-    position: relative;
     background-color: #6d006d;
-    width: auto;
+    width: 32%;
     margin: auto;
     margin-top: 15px;
     height: auto;
@@ -291,7 +283,7 @@ table button:hover{
 }
 #Add_Withdraw{
     width: 10%;
-    bottom: 40%;
+    bottom: 25px;
     position: relative;
 }
 .object{

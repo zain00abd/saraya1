@@ -74,7 +74,7 @@ let objreduce;
 let objreduce1; 
 
 //////////////////////////////////////////////////////
-let color = '#6f104ab4';
+let color = '';
 let arrreduce = [];
 let cssrun = '';
 let btnchange = 'h1'
@@ -417,7 +417,12 @@ if(localStorage.getItem('read') == 'true'){
             notestitle.value = '';
             site.value = '';
         }
-        
+
+        if(localStorage.getItem('mode1') == 'light'){
+            color = '#6f104ab4'
+        }
+        else{color = '#00d3d3'}
+
         function showdata(){
             let table = '';
             for(let i = 0; i < objects.length; i++)
@@ -425,16 +430,12 @@ if(localStorage.getItem('read') == 'true'){
                 table += `<tr >
                 <th>${i+1}</th>
                 <td>${objects[i].title}</td>
-                <td style="background-color:${color}">${objects[i].ads}</td>
+                <td style="width:13%; background-color:${color};" ><button style="background: none; height:12px;"> ${objects[i].ads} </button></td>
                 <td>${objects[i].category}</td>
                 <td>${objects[i].site}</td>
                 <td>${objects[i].notestitle}</td>
                 </tr>
                     `
-                    if(color == '#6f104ab4'){
-                        color = '#8a2554b4'
-                    }
-                    else{color = '#6f104ab4'}
                 }
                 document.getElementById('tbody').innerHTML = table;
                 }
@@ -521,10 +522,6 @@ if(localStorage.getItem('read') == 'true'){
                             <td>${objects[i].notestitle}</td>
                             </tr>
                             `
-                            if(color == '#6f104ab4'){
-                                color = '#8a2554b4'
-                            }
-                            else{color = '#6f104ab4'}
                         }
                         
                         ititle = objects[i].title
@@ -606,11 +603,11 @@ function bard1()
         cash.style.display = 'block'
         card.style.display = 'none';
         mnue.style.display = 'none'
+        mnu.style.display = 'none'
         isshowcashin = true;
         showreduce('Reduce')
         console.log(isshowcashin)
-        mnu.style.display = 'none'
-        iobj('fole')
+        iobj.style.display = 'none';
     }
 }
 
@@ -657,12 +654,19 @@ function iobj(id){
             if(arrsave[0].code1[i] == '_' || arrsave[0].code1[i] == null){
 
                 arrsave[0].code1.splice(i,1)
+                arrsave[0].reduce.splice(i,1)
                 i--
             }
             else{
                 hyt(i)
                 let k1 = document.getElementById(`${i + '2inp'}`)
+                let k2 = document.getElementById(`${i + '4inp'}`)
                 k1.value = objects[arrsave[0].code1[i]].category
+                if(arrsave[0].reduce[i] == undefined || arrsave[0].reduce[i] == null){
+
+                    k2.value = ''
+                }else{k2.value = arrsave[0].reduce[i]}
+                    
                 opensave = false
                 searchobject(objects[arrsave[0].code1[i]].category)
                 showtitle()
@@ -673,13 +677,10 @@ function iobj(id){
         showtitle()
     }
     else{
-        // location.reload()
+        location.reload()
     }
-    console.log(opensave)
 
 }
-
-
 
 let inpcountobj = document.getElementById('count1')
 
@@ -699,7 +700,7 @@ function saveip(arr1){
         names:names.value,
         notes:notes.value,
         code1:arr1,
-        reduce:reduce,
+        reduce:arrinpsystemreduce,
         Username:localStorage.getItem('nameUser'),
         modesystem:btnmodeobj,
     }
@@ -717,10 +718,10 @@ function countinput(){
             tablez +=
             `<tr>
             <th id="${i + '1inp'}" style="display:${desplayinp};">${i+1}.</th>
-            <th><input id="${i + '2inp'}" style="display:${desplayinp};" class="typ2"  onfocus="hyt(${i})" onkeyup="searchobject(this.value)" type="text"></th>
+            <th><input id="${i + '2inp'}" style="display:${desplayinp};" class="typ2" onfocus="hyt(${i})" onkeyup="searchobject(this.value)" type="text"></th>
             <th><input id="${i + '3inp'}" style="display:${desplayinp};" type="text" id="vf" class="typ1"></th>
             <th><small id="${i + 'M'}" style="display:${desplayinp};" class="ss5"></small><th>
-            <th><input id="${i + '4inp'}" style="display:${desplayinp};" type="tel" class="typ3"></th>
+            <th><input id="${i + '4inp'}" style="display:${desplayinp};" type="tel" onfocus="idinp(${i})" onkeyup="valueincrad(this.value)" class="typ3"></th>
             </tr>`
             desplayinp = 'none'
         }
@@ -732,7 +733,25 @@ function hyt(i){
     idtitle = i;
 }
 
+let idinp1;
+let arrinpsystemreduce = []
+if(localStorage.getItem('savedata') !== null){
+    arrinpsystemreduce = JSON.parse(localStorage.getItem('savedata'))[0].reduce
+}else{arrinpsystemreduce = []}
 
+function idinp(i){
+    idinp1 = i
+}
+let totalinp = 0;
+function valueincrad(value){
+    for(let i = 0; i < value.split('+').length; i++){
+        totalinp += +value.split('+')[i]
+    }
+    arrinpsystemreduce[idinp1] = totalinp
+    totalinp = 0
+    console.log(arrinpsystemreduce)
+    saveip(arridex);
+}
 
 
 function showtitle(){
@@ -795,12 +814,12 @@ function btnaplly(){
     
                     totalarr1 += +arrmaines1[j]
                  }
-                if(v4[i].value !== '' && !isNaN(totalarr1)){
+                if(v4[i].value !== '' && !isNaN(totalarr1) && v4[i].value != 0){
 
                         if(btnmodeobj == 'bntreduce'){
 
                          if(+totalarr1 > +objects[arridex[i]].ads || +totalarr1 == 0){
-                             let isok = window.confirm(`There are products whose quantity is less than the withdrawn quantity in"${objects[arridex[i]].title}"`)
+                             let isok = window.confirm(`Product "${objects[arridex[i]].title}" is not available in the required quantity. Do you want to complete the process?`)
                              if(isok == true){
                                 if(i == arridex.length){
                                     ku = true
@@ -930,6 +949,7 @@ function yesapllyreduce(){
         code.splice(0)
         titlereduce.splice(0)
         reduce.splice(0)
+        localStorage.removeItem('savedata')
         location.reload();
     }
     else{
