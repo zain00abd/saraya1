@@ -330,7 +330,7 @@ if(localStorage.getItem('read') == 'true'){
         mysort(idsort)
         showdata()
         isreduce()
-        showreduce(idshowcash)
+        showreduce(idshowcash,'lets1')
         cheack()
         getnewpass()
         cheack();
@@ -389,6 +389,7 @@ if(localStorage.getItem('read') == 'true'){
                 notestitle:notestitle.value,
                 site:site.value,
                 dexx:idex1,
+                idShoRe:'',
             }
             if(title.value != '' && category.value != '')
             {
@@ -432,7 +433,7 @@ if(localStorage.getItem('read') == 'true'){
                 table += `<tr >
                 <th>${i+1}</th>
                 <td>${objects[i].title}</td>
-                <td style="width:13%; background-color:${color};" ><button style="background: none; height:1px; margin:auto; color:${color1} font-weight: 750; font-size:15px;"> ${objects[i].ads} </button></td>
+                <td style="width:13%; background-color:${color};" ><button onclick="getshowreduce(${i})" style="background: none; height:1px; margin:auto; color:${color1} font-weight: 750; font-size:15px;"> ${objects[i].ads} </button></td>
                 <td>${objects[i].category}</td>
                 <td>${objects[i].site}</td>
                 <td>${objects[i].notestitle}</td>
@@ -607,13 +608,20 @@ function bard1()
         mnue.style.display = 'none'
         mnu.style.display = 'none'
         isshowcashin = true;
-        showreduce('Reduce')
         console.log(isshowcashin)
-        iobj.style.display = 'none';
     }
 }
 
+let lemet = 0;
+function getshowreduce(i){
+    if(lemet = objects[i].idShoRe !== undefined){
 
+        lemet = objects[i].idShoRe
+        showreduce('Reduce','lets2')
+        bard1()
+    }
+    console.log(lemet = objects[i].idShoRe)
+}
 
 btnobj.onclick = ()=>{
     if(localStorage.getItem('savedata') !== null){
@@ -661,6 +669,7 @@ function iobj(id){
             }
             else{
                 hyt(i)
+                idinp(i)
                 let k1 = document.getElementById(`${i + '2inp'}`)
                 let k2 = document.getElementById(`${i + '4inp'}`)
                 k1.value = objects[arrsave[0].code1[i]].category
@@ -672,6 +681,8 @@ function iobj(id){
                 opensave = false
                 searchobject(objects[arrsave[0].code1[i]].category)
                 showtitle()
+                localStorage.setItem('savedata',JSON.stringify(arrsave))
+                getarrinp()
             }
         }
         document.getElementById(`${arrsave[0].code1.length + '2inp'}`).focus();
@@ -737,9 +748,13 @@ function hyt(i){
 
 let idinp1;
 let arrinpsystemreduce = []
-if(localStorage.getItem('savedata') !== null){
-    arrinpsystemreduce = JSON.parse(localStorage.getItem('savedata'))[0].reduce
-}else{arrinpsystemreduce = []}
+function getarrinp(){
+
+    if(localStorage.getItem('savedata') !== null){
+        arrinpsystemreduce = JSON.parse(localStorage.getItem('savedata'))[0].reduce
+    }else{arrinpsystemreduce = []}
+}
+getarrinp()
 
 function idinp(i){
     idinp1 = i
@@ -914,6 +929,7 @@ function yesapllyreduce(){
                     else{
                         objects[arridex[i]].ads = 0
                     }
+                    objects[arridex[i]].idShoRe = arrreduce.length + 1;
                 }
                 else{
                     objects[arridex[i]].ads += (+totalarr);
@@ -982,8 +998,10 @@ function mysort(id){
     showdata();
 }
 
-function showreduce(id){
-
+let iLemet1 = 29;
+let iLemet2 = 29;
+function showreduce(id,value){
+    
     idshowcash = id
     document.getElementById('inpidexreduce').value = ''
     document.getElementById('Inp_Search_Cash').value = ''
@@ -1002,8 +1020,17 @@ function showreduce(id){
     }
    let tbl = ''
    let tbl1 = ''
-    for(i = 0; i < modesearchcash.length; i++)
+
+   if(value == 'lets1'){
+    iLemet1 = 0
+    iLemet2 = modesearchcash.length
+   }
+   else{iLemet1 = +lemet - 1; iLemet2 = +lemet;   console.log(iLemet1 + ' / ' + iLemet2)}
+
+
+    for(i = iLemet1; i < iLemet2; i++)
     {
+        console.log(i)
         for(j = 0; j < modesearchcash[i].code.length; j++)
         {
             tbl1 += `<tr>
@@ -1038,17 +1065,15 @@ function showreduce(id){
             `
             tbl1 = ''
         }
-    divcash.innerHTML = tbl
-}
-
-
+        divcash.innerHTML = tbl
+    }
 
 function cashdelet(){
     if(isdeletcash){
         modesearchcash.splice(ideletreduce,1);
         impurtcach()
         idexreduce(value = '')
-        showreduce(idshowcash)
+        showreduce(idshowcash,'lets1')
         InpSearchDeletCahs.value = ''
     }
 }
@@ -1228,3 +1253,4 @@ function idexreduce(value){
 btnobject()
 showdata();
 alldata();
+console.log(objects[0])
