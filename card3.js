@@ -61,7 +61,6 @@ let idex;
 let isshowtitle;
 let totalm1;
 let arrplus;
-let idshowcash
 let isdeletcash;
 let MenesOrPlus;
 let MenesOrPlus1;
@@ -74,6 +73,7 @@ let objreduce;
 let objreduce1; 
 
 //////////////////////////////////////////////////////
+let idshowcash = 'Reduce'
 let color = '';
 let color1 = '';
 let arrreduce = [];
@@ -113,7 +113,6 @@ function zoom(){
     else{
         document.body.style.zoom = '80%'
     }
-    console.log(os)
 }
 zoom()
 
@@ -194,7 +193,6 @@ function mnu1(){
         card.style.margin = 'auto'
         menu.style.width = '90%'
     }
-    console.log(vvf)
 }
 
 function getnewpass(){
@@ -330,7 +328,7 @@ if(localStorage.getItem('read') == 'true'){
         mysort(idsort)
         showdata()
         isreduce()
-        showreduce(idshowcash,'lets1')
+        showreduce(idshowcash)
         cheack()
         getnewpass()
         cheack();
@@ -364,7 +362,6 @@ if(localStorage.getItem('read') == 'true'){
             idx += ide[i]
         }
         idex1 = (+idx.slice(9))
-        console.log()
     }
 
     
@@ -391,7 +388,7 @@ if(localStorage.getItem('read') == 'true'){
                 dexx:idex1,
                 idShoRe:'',
             }
-            if(title.value != '' && category.value != '')
+            if(title.value != '' && category.value != ' ')
             {
                 if(mode === 'create')
                 {
@@ -444,8 +441,7 @@ if(localStorage.getItem('read') == 'true'){
                 }
 
     function deletdata(){  
-        if(valueedit != isNaN && inpedit.value != ''){
-            console.log('10')
+        if(valueedit != isNaN && valueedit != '' && inpedit.value != ''){
             objects.splice(valueedit,1);
             localStorage.product = JSON.stringify(objects);
             if(searchtype.value != ''){
@@ -458,10 +454,6 @@ if(localStorage.getItem('read') == 'true'){
         }
         else if(inpedit.value == 'Delet All' + '/' + passlogin[0]){
             ShowDeletAll()
-        }
-        else{
-            console.log('0')
-
         }
     }
 
@@ -608,24 +600,22 @@ function bard1()
         mnue.style.display = 'none'
         mnu.style.display = 'none'
         isshowcashin = true;
-        console.log(isshowcashin)
     }
 }
 
 let lemet = 0;
 function getshowreduce(i){
-    if(lemet = objects[i].idShoRe !== undefined){
-
+    if(objects[i].idShoRe !== ''){
+        console.log('ha')
+        ilemetmode = 'lest2'
         lemet = objects[i].idShoRe
-        showreduce('Reduce','lets2')
+        showreduce('Reduce')
         bard1()
     }
-    console.log(lemet = objects[i].idShoRe)
 }
 
 btnobj.onclick = ()=>{
     if(localStorage.getItem('savedata') !== null){
-        console.log('hsan')
         iobj('save data')
     }
     else{iobj('Auto System')}
@@ -766,7 +756,6 @@ function valueincrad(value){
     }
     arrinpsystemreduce[idinp1] = totalinp
     totalinp = 0
-    console.log(arrinpsystemreduce)
     saveip(arridex);
 }
 
@@ -812,7 +801,6 @@ function showtitle(){
     }
     if(opensave){
         saveip(arridex);
-        console.log('pop')
     }
 }
 
@@ -841,12 +829,10 @@ function btnaplly(){
                                 if(i == arridex.length){
                                     ku = true
                                 }
-                                console.log('yes')
                              }
                              else{
                                 ku = false
                                 i = arridex.length
-                                console.log('no')
                              }
                             }
                             arrmaines1.splice(0)
@@ -933,7 +919,6 @@ function yesapllyreduce(){
                 }
                 else{
                     objects[arridex[i]].ads += (+totalarr);
-                    console.log('plus1')
                 }
                 code.push(objects[arridex[i]].category)
                 titlereduce.push(objects[arridex[i]].title)
@@ -962,7 +947,6 @@ function yesapllyreduce(){
         else{
             arrplus.push(objreduce);
             localStorage.setItem('pluscashdiv',JSON.stringify(arrplus))
-            console.log('arrplus')
         }
         code.splice(0)
         titlereduce.splice(0)
@@ -998,9 +982,10 @@ function mysort(id){
     showdata();
 }
 
-let iLemet1 = 29;
-let iLemet2 = 29;
-function showreduce(id,value){
+let iLemet1 = 0;
+let iLemet2 = 0;
+let ilemetmode = 'lets1'
+function showreduce(id){
     
     idshowcash = id
     document.getElementById('inpidexreduce').value = ''
@@ -1021,16 +1006,15 @@ function showreduce(id,value){
    let tbl = ''
    let tbl1 = ''
 
-   if(value == 'lets1'){
+   if(ilemetmode == 'lets1'){
     iLemet1 = 0
     iLemet2 = modesearchcash.length
    }
-   else{iLemet1 = +lemet - 1; iLemet2 = +lemet;   console.log(iLemet1 + ' / ' + iLemet2)}
+   else{iLemet1 = +lemet - 1; iLemet2 = +lemet;}
 
 
     for(i = iLemet1; i < iLemet2; i++)
     {
-        console.log(i)
         for(j = 0; j < modesearchcash[i].code.length; j++)
         {
             tbl1 += `<tr>
@@ -1073,7 +1057,7 @@ function cashdelet(){
         modesearchcash.splice(ideletreduce,1);
         impurtcach()
         idexreduce(value = '')
-        showreduce(idshowcash,'lets1')
+        showreduce(idshowcash)
         InpSearchDeletCahs.value = ''
     }
 }
@@ -1221,6 +1205,7 @@ function indexobj(value){
         document.getElementById('tbodyedit').innerHTML = ''
         valueedit = ''
     }
+    console.log(valueedit)
 }
 
 
@@ -1253,4 +1238,3 @@ function idexreduce(value){
 btnobject()
 showdata();
 alldata();
-console.log(objects[0])
