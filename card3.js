@@ -611,6 +611,7 @@ function getshowreduce(i){
         lemet = objects[i].idShoRe
         showreduce('Reduce')
         bard1()
+        zoom()
     }
 }
 
