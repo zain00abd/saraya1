@@ -197,6 +197,7 @@
         <div class="btn_plus_reduce">
             <button onclick="btnobject(this.id)" id="bntplus">Addition</button>
             <button onclick="btnobject(this.id)" id="bntreduce">Reduce</button>
+            <button onclick="cleardatareduce()" style="color: #ffe1ee; font-weight: 650; letter-spacing: 2px; width: 30%; left: 295%;">Cleare data</button>
         </div>
         <div id="data_prem">
             <table>
@@ -238,8 +239,11 @@
                 <tbody id="tbd123">
                 </tbody>
             </table>
+            <div class="p_object" hidden>
+                <p id="p_1">Error :</p>
+                <p id="p_2"></p>
+            </div>
             <div id="btn_obj">
-
                 <button onclick="btnaplly()" id="apply">Apply</BUtton>
                 <button id="close" onclick="iobj(this.id)">Close</BUtton>
             </div>

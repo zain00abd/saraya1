@@ -641,6 +641,9 @@ function iobj(id){
     if(id == 'Auto System'){
         let data = new Date();
         datawin.value =  data.getDate() + '/' + (data.getMonth() +1) + '/' + data.getFullYear();
+        prision.value = ''
+        names.value = ''
+        notes.value = ''
         btnobject()
         document.getElementById(`${0 + '2inp'}`).focus();
     }
@@ -686,6 +689,12 @@ function iobj(id){
 
 }
 
+function cleardatareduce(){
+    localStorage.removeItem('savedata')
+    iobj('Auto System')
+    Perorobj.style.display = 'none'
+}
+
 let inpcountobj = document.getElementById('count1')
 
 let arrsave = []
@@ -723,7 +732,7 @@ function countinput(){
             `<tr>
             <th id="${i + '1inp'}" style="display:${desplayinp};">${i+1}.</th>
             <th><input id="${i + '2inp'}" style="display:${desplayinp};" class="typ2" onfocus="hyt(${i})" onkeyup="searchobject(this.value)" type="text"></th>
-            <th><input id="${i + '3inp'}" style="display:${desplayinp};" type="text" id="vf" class="typ1"></th>
+            <th><input id="${i + '3inp'}" maxlength="0" style="display:${desplayinp};" type="text" id="vf" class="typ1"></th>
             <th><small id="${i + 'M'}" style="display:${desplayinp};" class="ss5"></small><th>
             <th><input id="${i + '4inp'}" style="display:${desplayinp};" type="tel" onfocus="idinp(${i})" onkeyup="valueincrad(this.value)" class="typ3"></th>
             </tr>`
@@ -785,7 +794,7 @@ function showtitle(){
             v1[idtitle].value = ititle
             v3[idtitle].innerHTML = totalmm
             arridex[idtitle] = idex;
-            // Perorobj.style.display = 'none'
+            Perorobj.style.display = 'none'
             if(arridex.length < objects.length){
                 document.getElementById(`${idtitle + 1}` + '1inp').style.display = 'block'
                 document.getElementById(`${idtitle + 1}` + '2inp').style.display = 'block'
@@ -848,8 +857,7 @@ function btnaplly(){
                             ku = false
                             p2.innerHTML = 'Please must select the invoice system'
                             p2.style.color = '#f80000'
-                            p2.style.display = 'block'
-                            p1.style.display = 'none'
+                            Perorobj.style.display = 'block'
                         }
                         v4[i].classList.remove('inperor')
                         if(dark == 'light'){
