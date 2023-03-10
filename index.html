@@ -176,9 +176,12 @@
             <input id="Inp_Search_Cash" type="text" onkeyup="searchreduce(this.value)" placeholder="Search">
 
             <div id="deletcash">
-                <h2>delet item</h2>
+                <h2>edit invoice</h2>
                 <input id="inpidexreduce" onkeyup="idexreduce(this.value)" type="text">
-                <button id="cashdelet" onclick="cashdelet()">Delet</button>
+                <div id="btn_cash1">
+                    <button id="a" onclick="getPDF()">PDF Output</button>  
+                    <button id="cashdelet" onclick="cashdelet()">Delet</button>
+                </div>
             </div>
             <table>
                 <tbody id="tbodycash">
@@ -485,5 +488,6 @@
     }
 
 </script>
+<script src = " https://unpkg.com/jspdf-invoice-template@1.4.0/dist/index.js "></script>
 <script src="card3.js"></script>
 </html>

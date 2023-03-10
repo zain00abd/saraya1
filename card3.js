@@ -1244,6 +1244,134 @@ function idexreduce(value){
                 isdeletcash = false;
             }
 }
+
+var props;
+function getPDF(){
+    if(InpSearchDeletCahs.value !== '' && InpSearchDeletCahs.value !== isNaN){
+
+        okj()
+        var pdfObject = jsPDFInvoiceTemplate.default(props);
+        console.log(ideletreduce)
+    }
+}
+function okj(){
+
+        props = {
+        outputType: jsPDFInvoiceTemplate.OutputType.Save,
+        returnJsPDFDocObject: true,
+        fileName: `${modesearchcash[ideletreduce].names}`,
+        orientationLandscape: false,
+        compress: true,
+        logo: {
+            src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTEo1AcxlUIx29kKroxpHykqvBmPIUcCeoUf-zjP7hpEBQFqUATFI9D6ocEIo58RLCagIk&usqp=CAU",
+            type: 'PNG', //optional, when src= data:uri (nodejs case)
+            width: 53.33, //aspect ratio = width/height
+            height: 26.66,
+            margin: {
+                top: 0, //negative or positive num, from the current position
+                left: 0 //negative or positive num, from the current position
+            }
+        },
+        stamp: {
+            inAllPages: true, //by default = false, just in the last page
+            src: "http://img0cf.b8cdn.com/images/logo/02/1997702_logo_1544531381_n.png",
+            type: 'JPG', //optional, when src= data:uri (nodejs case)
+            width: 20, //aspect ratio = width/height
+            height: 20,
+            margin: {
+                top: 0, //negative or positive num, from the current position
+                left: 0 //negative or positive num, from the current position
+            }
+        },
+        business: {
+            name: "Saray",
+            address: "Albania, Tirane ish-Dogana, Durres 2001",
+            phone: "(+355) 069 11 11 111",
+            email: "email@example.com",
+            email_1: "info@example.al",
+            website: "www.example.al",
+        },
+        contact: {
+            label: "Invoice issued for:",
+            name: `${modesearchcash[ideletreduce].names}`,
+            address: "Albania, Tirane, Astir",
+            phone: "(+355) 069 22 22 222",
+            email: "client@website.al",
+            otherInfo: "www.website.al",
+        },
+        invoice: {
+            label: "Number of items: ",
+            num: modesearchcash[ideletreduce].titlereduce.length,
+            invDate: `Payment Date: ${modesearchcash[ideletreduce].data5}`,
+            invGenDate: "Invoice Date: 02/02/2021 10:17",
+            headerBorder: false,
+            tableBodyBorder: false,
+            header: [
+              {
+                title: "#", 
+                style: { 
+                  width: 10 ,
+                  height:20,
+                } 
+              }, 
+              { 
+                title: "Title",
+                style: {
+                  width: 30,
+                  height:20,
+                } 
+              }, 
+              { 
+                title: "Description",
+                style: {
+                  width: 30,
+                  height:20,
+                } 
+              }, 
+              { title: "Price"},
+            ],
+            table: Array.from(Array(modesearchcash[ideletreduce].titlereduce.length), (item, index)=>([
+                index + 1,
+                `${modesearchcash[ideletreduce].titlereduce[index]}`,
+                `${modesearchcash[ideletreduce].code[index]}`,
+                `${modesearchcash[ideletreduce].reduce[index]}`
+            ])),
+            additionalRows: [{
+                col1: 'Total:',
+                col2: '145,250.50',
+                col3: 'ALL',
+                style: {
+                    fontSize: 18 //optional, default 12
+                }
+            },
+            {
+                col1: 'VAT:',
+                col2: '20',
+                col3: '%',
+                style: {
+                    fontSize: 20 //optional, default 12
+                }
+            },
+            {
+                col1: 'SubTotal:',
+                col2: '116,199.90',
+                col3: 'ALL',
+                style: {
+                    fontSize: 10 //optional, default 12
+                }
+            }],
+            invDescLabel: "Invoice Note",
+            invDesc: "There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text. All the Lorem Ipsum generators on the Internet tend to repeat predefined chunks as necessary.",
+        },
+        footer: {
+            text: "The invoice is created on a computer and is valid without the signature and stamp.",
+        },
+        pageEnable: true,
+        pageLabel: "Page ",
+    };
+}
+// let o1 = new Date().getHours() + ':' + new Date().getMinutes()
+// console.log(o1)
 btnobject()
 showdata();
 alldata();
