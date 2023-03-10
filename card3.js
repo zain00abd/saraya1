@@ -317,10 +317,13 @@ function user(){
     // document.getElementById('btnshow_chaengpass').style.display = 'none'
 }
 
+let data = new Date();
+
 setInterval(function(){
 if(localStorage.getItem('read') == 'true'){
     alldata()
 }
+data = new Date();
 },100)
 
     function alldata(){
@@ -623,6 +626,9 @@ btnobj.onclick = ()=>{
 }
 
 let opensave = true;
+let dateevry;
+dateevry = data.getDate() + '/' + (data.getMonth() +1) + '/' + data.getFullYear();
+
 function iobj(id){
     if(vvf == 'man'){
         mnu1()
@@ -637,10 +643,8 @@ function iobj(id){
         top:0,
         behavior:'smooth'
     })
-
     if(id == 'Auto System'){
-        let data = new Date();
-        datawin.value =  data.getDate() + '/' + (data.getMonth() +1) + '/' + data.getFullYear();
+        datawin.value =  dateevry
         prision.value = ''
         names.value = ''
         notes.value = ''
@@ -1244,7 +1248,7 @@ function idexreduce(value){
                 isdeletcash = false;
             }
 }
-
+console.log(arrreduce[1])
 var props;
 function getPDF(){
     if(InpSearchDeletCahs.value !== '' && InpSearchDeletCahs.value !== isNaN){
@@ -1293,7 +1297,7 @@ function okj(){
         },
         contact: {
             label: "Invoice issued for:",
-            name: `${modesearchcash[ideletreduce].names}`,
+            name: `${modesearchcash[ideletreduce].Username}`,
             address: "Albania, Tirane, Astir",
             phone: "(+355) 069 22 22 222",
             email: "client@website.al",
@@ -1303,29 +1307,26 @@ function okj(){
             label: "Number of items: ",
             num: modesearchcash[ideletreduce].titlereduce.length,
             invDate: `Payment Date: ${modesearchcash[ideletreduce].data5}`,
-            invGenDate: "Invoice Date: 02/02/2021 10:17",
+            invGenDate: `Invoice Date: ${dateevry}`,
             headerBorder: false,
             tableBodyBorder: false,
             header: [
               {
                 title: "#", 
                 style: { 
-                  width: 10 ,
-                  height:20,
+                  width: 30 ,
                 } 
               }, 
               { 
                 title: "Title",
                 style: {
                   width: 30,
-                  height:20,
                 } 
               }, 
               { 
                 title: "Description",
                 style: {
                   width: 30,
-                  height:20,
                 } 
               }, 
               { title: "Price"},
