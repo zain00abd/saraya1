@@ -92,7 +92,6 @@ let modesearchcash = arrreduce
 var os = null;
 textobj.innerHTML = '----'
 
-
 function getOS() {
     var userAgent = window.navigator.userAgent
     if (/Android/.test(userAgent)) {
@@ -736,7 +735,7 @@ function countinput(){
             `<tr>
             <th id="${i + '1inp'}" style="display:${desplayinp};">${i+1}.</th>
             <th><input id="${i + '2inp'}" style="display:${desplayinp};" class="typ2" onfocus="hyt(${i})" onkeyup="searchobject(this.value)" type="text"></th>
-            <th><input id="${i + '3inp'}" maxlength="0" style="display:${desplayinp};" type="text" id="vf" class="typ1"></th>
+            <th><input id="${i + '3inp'}" style="display:${desplayinp};" type="text" id="vf" class="typ1"></th>
             <th><small id="${i + 'M'}" style="display:${desplayinp};" class="ss5"></small><th>
             <th><input id="${i + '4inp'}" style="display:${desplayinp};" type="tel" onfocus="idinp(${i})" onkeyup="valueincrad(this.value)" class="typ3"></th>
             </tr>`
@@ -1258,6 +1257,7 @@ function getPDF(){
         console.log(ideletreduce)
     }
 }
+
 function okj(){
 
         props = {
@@ -1298,7 +1298,7 @@ function okj(){
         contact: {
             label: "Invoice issued for:",
             name: `${modesearchcash[ideletreduce].Username}`,
-            address: "Albania, Tirane, Astir",
+            address: "يا هلاوات سيدي",
             phone: "(+355) 069 22 22 222",
             email: "client@website.al",
             otherInfo: "www.website.al",
@@ -1318,7 +1318,7 @@ function okj(){
                 } 
               }, 
               { 
-                title: "Title",
+                title: "فريكة؟",
                 style: {
                   width: 30,
                 } 

@@ -357,10 +357,7 @@ table button:hover{
     background-color: #00a4d2b4;
     font-size: 18px;
 }
-.ggtt1 p{
-    display: inline;
-    font-size: 17px;
-}
+
 #p_1{
     color: #c30024;
     border-radius: 20px;
@@ -379,7 +376,10 @@ table button:hover{
 #btn_obj button:hover{
     background:linear-gradient(rgb(0, 52, 74),rgb(30, 73, 87));
 }
-
+.ggtt1 p{
+    display: inline;
+    font-size: 17px;
+}
 .ggtt1 input{
     width: 70%;
     text-align: center;

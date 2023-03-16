@@ -6,7 +6,7 @@ body{
     background-color: #310031;
     height: auto;
     color: rgb(255, 255, 255);
-    font-family: system-ui;
+    font-family: 'Droid Arabic Naskh Bold', sans-serif;
     letter-spacing: 1px;
     padding-top: 50px;
     margin-bottom: 30px;
@@ -298,6 +298,42 @@ table button:hover{
     border: 1px dashed rgb(248, 0, 211);
     letter-spacing: 1px;
 }
+.object table th input{
+    width: 70%;
+    text-align: center;
+    background-color: rgb(46, 3, 46);
+}
+.ggtt1 p{
+    display: inline;
+    font-size: 17px;
+}
+.ggtt1 input{
+    width: 70%;
+    text-align: center;
+    font-size: 16px;
+    background-color:  #9affe9d5;
+    font-weight: 600;
+}
+.ggtt1{
+    margin: auto;
+    width: 95%;
+}
+.ggtt1 small::before{
+    content: 'M: ';
+}
+.ggtt1 small{
+    font-size: 17px;
+    width: 140%;
+}
+.ggtt1 table{
+    margin: auto;
+}
+.ggtt1 table tr th{
+    margin: auto;
+    padding-left: 75px;
+    text-align: center;
+}
+
 #data_prem{
     margin-left:0px;
     display: flex;
@@ -345,37 +381,6 @@ table button:hover{
 #btn_obj button:hover{
     
     background:linear-gradient(rgb(129, 0, 90),rgb(211, 0, 162));
-}
-.ggtt1 input{
-    width: 70%;
-    text-align: center;
-    background-color: #2f002f;
-    font-size: 15px;
-}
-.ggtt1{
-    margin: auto;
-    width: 95%;
-}
-.ggtt1 p{
-    display: inline;
-    font-size: 17px;
-}
-.ggtt1 small::before{
-    content: 'M: ';
-
-}
-.ggtt1 small{
-    font-size: 17px;
-    width: 150%;
-}
-.ggtt1 table{
-    margin-top: 20px;
-    text-align: center;
-}
-.ggtt1 table tr th{
-    margin: auto;
-    padding-left: 75px;
-    text-align: center;
 }
 .menes::after{
     width: 20px;
