@@ -266,11 +266,12 @@ function login(){
     }
     else{
         peror.style.display = 'block'
+        console.log('eroor')
     }
     localStorage.setItem('nameUser',String(des[0]))
-    sharedpowers()
-    cheack()
-    getname()
+    // sharedpowers()
+    // cheack()
+    // getname()
 }
 
 function sharedpowers(){
@@ -1247,7 +1248,20 @@ function idexreduce(value){
                 isdeletcash = false;
             }
 }
-console.log(arrreduce[1])
+// تحديد عنصر HTML الذي يحتوي على الصورة المراد تحويلها إلى PDF
+const pdf = new window.jspdf.jsPDF();
+function pdfimg(){
+    html2canvas(document.body).then(canvas => {
+        const imgData = canvas.toDataURL('image/png');
+      
+        // Change the background image of the canvas
+        canvas.style.backgroundImage = 'url("new-background-image.png")';
+      
+        pdf.addImage(imgData, 'PNG', 0, 0, pdf.internal.pageSize.getWidth(), pdf.internal.pageSize.getHeight());
+        pdf.save('document.pdf');
+      });      
+}
+
 var props;
 function getPDF(){
     if(InpSearchDeletCahs.value !== '' && InpSearchDeletCahs.value !== isNaN){
