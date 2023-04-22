@@ -609,10 +609,9 @@ function bard1()
 let lemet = 0;
 function getshowreduce(i){
     if(objects[i].idShoRe !== ''){
-        console.log('ha')
         ilemetmode = 'lest2'
         lemet = objects[i].idShoRe
-        showreduce('Reduce')
+        showreduce('Reduce',objects[i].category)
         bard1()
         zoom()
     }
@@ -998,8 +997,8 @@ function mysort(id){
 let iLemet1 = 0;
 let iLemet2 = 0;
 let ilemetmode = 'lets1'
-function showreduce(id){
-    
+function showreduce(id,COD){
+    console.log(COD)
     idshowcash = id
     document.getElementById('inpidexreduce').value = ''
     document.getElementById('Inp_Search_Cash').value = ''
@@ -1025,12 +1024,18 @@ function showreduce(id){
    }
    else{iLemet1 = +lemet - 1; iLemet2 = +lemet;}
 
+   let backitem = '#dcecf500'
 
     for(i = iLemet1; i < iLemet2; i++)
     {
         for(j = 0; j < modesearchcash[i].code.length; j++)
         {
-            tbl1 += `<tr>
+            if(modesearchcash[i].code[j] == COD){
+                backitem = '#ffff00'
+                console.log(modesearchcash[i].code[j])
+            }
+            else{backitem = '#dcecf500'}
+            tbl1 += `<tr style="background-color:${backitem};">
             <th>${modesearchcash[i].code[j]}</th>
             <th>${modesearchcash[i].titlereduce[j]}</th>
             <th>${modesearchcash[i].reduce[j]}</th>
