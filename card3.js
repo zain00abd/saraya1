@@ -266,7 +266,7 @@ function login(){
     }
     else{
         peror.style.display = 'block'
-        console.log('eroor')
+        // console.log('eroor')
     }
     localStorage.setItem('nameUser',String(des[0]))
     // sharedpowers()
@@ -671,7 +671,6 @@ function iobj(id){
                 let k2 = document.getElementById(`${i + '4inp'}`)
                 k1.value = objects[arrsave[0].code1[i]].category
                 if(arrsave[0].reduce[i] == undefined || arrsave[0].reduce[i] == null){
-
                     k2.value = ''
                 }else{k2.value = arrsave[0].reduce[i]}
                     
@@ -998,7 +997,7 @@ let iLemet1 = 0;
 let iLemet2 = 0;
 let ilemetmode = 'lets1'
 function showreduce(id,COD){
-    console.log(COD)
+    // console.log(COD)
     idshowcash = id
     document.getElementById('inpidexreduce').value = ''
     document.getElementById('Inp_Search_Cash').value = ''
@@ -1032,7 +1031,7 @@ function showreduce(id,COD){
         {
             if(modesearchcash[i].code[j] == COD){
                 backitem = '#ffff00'
-                console.log(modesearchcash[i].code[j])
+                // console.log(modesearchcash[i].code[j])
             }
             else{backitem = '#dcecf500'}
             tbl1 += `<tr style="background-color:${backitem};">
@@ -1223,7 +1222,7 @@ function indexobj(value){
         document.getElementById('tbodyedit').innerHTML = ''
         valueedit = ''
     }
-    console.log(valueedit)
+    // console.log(valueedit)
 }
 
 
@@ -1273,7 +1272,7 @@ function getPDF(){
 
         okj()
         var pdfObject = jsPDFInvoiceTemplate.default(props);
-        console.log(ideletreduce)
+        // console.log(ideletreduce)
     }
 }
 

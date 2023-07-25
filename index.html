@@ -94,7 +94,6 @@
             <button id="min" onclick="mnu1()">Settings</button>
             <button id="btncashing" onclick="bard1()">cashing</button>
             <button id="Add_Withdraw" onclick="iobj(this.id)">Add / Withdraw Quantities</button>
-            <button id="Add_Withdraw" onclick="pdfimg()">img</button>
             <button id="btncashing1" onclick="btnmode1()"><img src="1on.png" alt="gg"></button>
             <p>DARK MODE</p>
         </div>
@@ -339,7 +338,7 @@
                     if(data.val() != null && localStorage.getItem('product') != data.val()){
         
                         localStorage.setItem('product',data.val())
-                        console.log('pruduct')
+                        // console.log('pruduct')
                         getfalse()
                     }
                 })
@@ -349,7 +348,7 @@
                     if(data.val() != null && localStorage.getItem('cashdiv') != data.val()){
         
                         localStorage.setItem('cashdiv',data.val())
-                        console.log('cashdiv')
+                        // console.log('cashdiv')
                         getfalse()
                     }
                 })
@@ -358,7 +357,7 @@
                     if(data.val() != null && localStorage.getItem('pluscashdiv') != data.val()){
 
                     localStorage.setItem('pluscashdiv',data.val())
-                    console.log('pluscashdiv')
+                    // console.log('pluscashdiv')
                     getfalse()
                     }
                 })
@@ -395,6 +394,8 @@
                 'product':localStorage.getItem('pluscashdiv'),
             })
     }
+
+    console
 
     function getfalse(){
         localStorage.setItem('read','true')
